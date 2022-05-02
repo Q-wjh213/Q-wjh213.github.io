@@ -6,9 +6,9 @@ https://blog.hanyblue.com/about/index.html
 https://blog.hanyblue.com/categories/index.html
 https://blog.hanyblue.com/tags/index.html
 https://blog.hanyblue.com/
-https://blog.hanyblue.com/tags/azure%E6%96%87%E5%AD%97%E8%BD%AC%E8%AF%AD%E9%9F%B3/
 https://blog.hanyblue.com/tags/%E8%99%9A%E6%8B%9F%E9%93%B6%E8%A1%8C%E5%8D%A1/
 https://blog.hanyblue.com/tags/bankoff/
+https://blog.hanyblue.com/tags/azure%E6%96%87%E5%AD%97%E8%BD%AC%E8%AF%AD%E9%9F%B3/
 https://blog.hanyblue.com/tags/bitwarden/
 https://blog.hanyblue.com/tags/bitwarden-rs/
 https://blog.hanyblue.com/tags/google-voice/
