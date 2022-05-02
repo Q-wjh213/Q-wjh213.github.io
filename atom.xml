@@ -6,7 +6,7 @@
   <link href="https://blog.hanyblue.com/atom.xml" rel="self"/>
   
   <link href="https://blog.hanyblue.com/"/>
-  <updated>2022-05-01T15:38:00.888Z</updated>
+  <updated>2022-05-02T12:55:06.953Z</updated>
   <id>https://blog.hanyblue.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo pure主题文章末尾版权声明如何修改</title>
+    <link href="https://blog.hanyblue.com/2022/05/02/pure-ban-quan-sheng-ming/"/>
+    <id>https://blog.hanyblue.com/2022/05/02/pure-ban-quan-sheng-ming/</id>
+    <published>2022-05-02T12:49:11.000Z</published>
+    <updated>2022-05-02T12:55:06.953Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本位内容来自<a href="https://github.com/cofess/hexo-theme-pure/issues/128">‘本文链接’和‘版权声明’取消不掉 · Issue #128 · cofess/hexo-theme-pure (github.com)</a></p><p>找到主题文件./themes/pure/layout/_partial/post/copyright.ejs</p><p>修改对应的版权声明</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blockquote</span> <span class="attr">class</span>=<span class="string">&quot;mt-2x&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;post-copyright list-unstyled&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;post-copyright-license&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">strong</span>&gt;</span>文章作者： <span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://hwame.github.io&quot;</span> <span class="attr">style</span>=<span class="string">&quot;color:#E541E5;&quot;</span>&gt;</span> 鴻塵<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &lt;% if (post.permalink) &#123; %&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;post-copyright-link hidden-xs&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">strong</span>&gt;</span>本文链接：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%- post.permalink %&gt;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;&lt;%= post.title %&gt;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;external&quot;</span>&gt;</span>&lt;%- post.permalink %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;post-copyright-license&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">strong</span>&gt;</span>版权声明： <span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 本博客所有文章除特别声明外，均采用《<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://creativecommons.org/licenses/by/4.0/deed.zh&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;external&quot;</span> <span class="attr">style</span>=<span class="string">&quot;color:#E541E5;&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">u</span>&gt;</span>CC BY 4.0 CN协议<span class="tag">&lt;/<span class="name">u</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>》许可协议。转载请注明出处！ </span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">blockquote</span>&gt;</span></span><br></pre></td></tr></table></figure><p>对图中文字和超链接进行修改即可。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;注：本位内容来自&lt;a href=&quot;https://github.com/cofess/hexo-theme-pure/issues/128&quot;&gt;‘本文链接’和‘版权声明’取消不掉 · Issue #128 · cofess/hexo-theme-pure (github.co</summary>
+      
+    
+    
+    
+    <category term="教程" scheme="https://blog.hanyblue.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="pure" scheme="https://blog.hanyblue.com/tags/pure/"/>
+    
+  </entry>
   
   <entry>
     <title>如何注册bankoff虚拟卡（附带充值教程）</title>

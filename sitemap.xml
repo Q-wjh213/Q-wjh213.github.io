@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.hanyblue.com/2022/05/02/pure-ban-quan-sheng-ming/</loc>
+    
+    <lastmod>2022-05-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.hanyblue.com/2022/04/24/bankoff/</loc>
     
     <lastmod>2022-05-01</lastmod>
@@ -117,6 +126,13 @@
   
   <url>
     <loc>https://blog.hanyblue.com/tags/%E8%BD%AC%E7%A7%BB/</loc>
+    <lastmod>2022-05-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.hanyblue.com/tags/pure/</loc>
     <lastmod>2022-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

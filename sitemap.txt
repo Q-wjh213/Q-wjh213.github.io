@@ -1,3 +1,4 @@
+https://blog.hanyblue.com/2022/05/02/pure-ban-quan-sheng-ming/
 https://blog.hanyblue.com/2022/04/24/bankoff/
 https://blog.hanyblue.com/2022/04/10/ji-yi-ci-zhuan-yi-google-voice-de-jing-li/
 https://blog.hanyblue.com/2022/04/10/ru-he-shi-yong-wei-ruan-azure-de-yu-yin-he-cheng-wen-zi-zhuan-yu-yin/
@@ -13,5 +14,6 @@ https://blog.hanyblue.com/tags/bitwarden/
 https://blog.hanyblue.com/tags/bitwarden-rs/
 https://blog.hanyblue.com/tags/google-voice/
 https://blog.hanyblue.com/tags/%E8%BD%AC%E7%A7%BB/
+https://blog.hanyblue.com/tags/pure/
 https://blog.hanyblue.com/categories/%E6%95%99%E7%A8%8B/
 https://blog.hanyblue.com/categories/%E7%BB%8F%E5%8E%86/
