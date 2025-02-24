@@ -10,42 +10,17 @@
     <!-- Custom HTML head -->
     
     <meta name="description" content="#
-容斥原理
-|⋃𝑛𝑖&#x3D;1𝑆𝑖|&#x3D;∑𝑛𝑚&#x3D;1(−1)𝑚−1∑𝑎𝑖&lt;𝑎𝑖−1|⋂𝑚𝑖&#x3D;1𝑆𝑎𝑖|
+期望的线性性
+𝔼(𝑎𝑋+𝑏𝑌)&#x3D;𝑎𝔼(𝑋)+𝑏𝔼(𝑌)
 
-证明
-考虑对于一个元素 𝑥 在 𝑚 个集合中出现过。
-•
-若 𝑚&#x3D;0，则显然该元素对等式的左右都不产生贡献。
+如何证明这个结论？
+考虑根据期望的定义，我们有
+𝔼(𝑎𝑋+𝑏𝑌)&#x3D;∑𝑥∑𝑦(𝑎𝑥+𝑏𝑦)×𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)
+&#x3D;𝑎∑𝑥∑𝑦𝑥×𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)+𝑏∑𝑦∑𝑥𝑦×𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)
+&#x3D;𝑎∑𝑥𝑥∑𝑦𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)+𝑏∑𝑦𝑦∑𝑥𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)
+&#x3D;𝑎∑𝑥𝑥×𝑝(𝑋&#x3D;𝑥)+𝑏∑𝑦𝑦×𝑝(𝑌&#x3D;𝑦)
+&#x3D;𝑎𝔼(𝑋)+𝑏𝔼(𝑌)
 
-
-•
-若 𝑚≠0，则 𝑥 对等式左边的贡献显然为1，而对等式右边的贡献可用以下式子说明：
-  ∑𝑚𝑖&#x3D;1(−1)𝑖−1(𝑚𝑖)
-&#x3D;∑𝑚𝑖&#x3D;1−1×(−1)𝑖(𝑚𝑖)
-&#x3D;−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
-&#x3D;1−1−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
-&#x3D;1−(−1)0×(𝑚0)−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
-&#x3D;1−∑𝑚𝑖&#x3D;0(−1)𝑖(𝑚𝑖)
-
-由于在长为 𝑚 的 01 串中，1 的数量为奇数的串的数量与为偶数的串的数量相同。
-可采用数学归纳法。
-‣
-当 𝑚&#x3D;1 时，结论显然成立。
-
-
-‣
-当 𝑚&gt;1 时，若 𝑘&#x3D;𝑚−1 时结论成立，则当 𝑘&#x3D;𝑚 时，由于第 𝑚 位选择 0/1 的概率相同，所以显然也成立。
-
-
-
-
-故 ∑𝑚𝑖&#x3D;0(−1)𝑖(𝑚𝑖)&#x3D;0,即有
-原
-式
-&#x3D;1−0&#x3D;1
-
-即左边贡献等于右边贡献，所以
 
 ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -187,7 +162,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/容斥原理.html" class="active"><strong aria-hidden="true">1.1.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/期望.html"><strong aria-hidden="true">1.1.2.</strong> 期望</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/pb_ds.html"><strong aria-hidden="true">1.2.1.</strong> pb_ds & rope</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html"><strong aria-hidden="true">1.1.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html" class="active"><strong aria-hidden="true">1.1.2.</strong> 期望</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html"><strong aria-hidden="true">1.2.1.</strong> pb_ds & rope</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -260,7 +235,7 @@
                         <script>
     let appContainer = document.currentScript && document.currentScript.parentElement;
     window.typstRenderModuleReady.then((plugin) => {
-        window.typstBookRenderPage(plugin, "/note/容斥原理", appContainer);
+        window.typstBookRenderPage(plugin, "/note/数学/期望", appContainer);
     });
 </script>
                     </main>

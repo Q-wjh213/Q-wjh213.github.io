@@ -10,35 +10,44 @@
     <!-- Custom HTML head -->
     
     <meta name="description" content="#
-pb_ds&amp;amp;rope: C++ 中强大的扩展库
-pb_ds 中内封装了多种强大的数据结构，虽然效率可能并不算很高，但是若在有些时候知道怎么用或许可以解燃眉之急。
-#
-导入
-pb_ds&amp;amp;rope 存在万能头，只需要使用  #include &lt;bits/extc++.h&gt; 即可。
-pb_ds 中的内容处于命名空间 __gnu_pbds 内。
-#
-哈希表
-在 pb_ds 中，封装了 hash_table。这种哈希表相较于 unordered_map 速度更加快，效率更高，更难被卡。
-通常在 pb_ds 中常用的哈希表为 gp_hash_table,我们可以通过以下代码创建：
-1
- // 以下 T1,T2 代表两种类型。
-2
- #include&lt;bits/stdc++.h&gt;
-3
- __gnu_pbds::gp_hash_table &lt;T1, T2&gt; H1;
-不难发现其构建方式类似于 map 和 unordered_map。
-1.
-相比于 unordered_map，其速度更快。
+容斥原理
+|⋃𝑛𝑖&#x3D;1𝑆𝑖|&#x3D;∑𝑛𝑚&#x3D;1(−1)𝑚−1∑𝑎𝑖&lt;𝑎𝑖−1|⋂𝑚𝑖&#x3D;1𝑆𝑎𝑖|
+
+证明
+考虑对于一个元素 𝑥 在 𝑚 个集合中出现过。
+•
+若 𝑚&#x3D;0，则显然该元素对等式的左右都不产生贡献。
 
 
-2.
-空间复杂度略大于 unordered_map。
+•
+若 𝑚≠0，则 𝑥 对等式左边的贡献显然为1，而对等式右边的贡献可用以下式子说明：
+  ∑𝑚𝑖&#x3D;1(−1)𝑖−1(𝑚𝑖)
+&#x3D;∑𝑚𝑖&#x3D;1−1×(−1)𝑖(𝑚𝑖)
+&#x3D;−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
+&#x3D;1−1−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
+&#x3D;1−(−1)0×(𝑚0)−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
+&#x3D;1−∑𝑚𝑖&#x3D;0(−1)𝑖(𝑚𝑖)
+
+由于在长为 𝑚 的 01 串中，1 的数量为奇数的串的数量与为偶数的串的数量相同。
+可采用数学归纳法。
+‣
+当 𝑚&#x3D;1 时，结论显然成立。
 
 
-todo：自定义哈希函数
-#
-堆
-在 STL 中的 priority_qu">
+‣
+当 𝑚&gt;1 时，若 𝑘&#x3D;𝑚−1 时结论成立，则当 𝑘&#x3D;𝑚 时，由于第 𝑚 位选择 0/1 的概率相同，所以显然也成立。
+
+
+
+
+故 ∑𝑚𝑖&#x3D;0(−1)𝑖(𝑚𝑖)&#x3D;0,即有
+原
+式
+&#x3D;1−0&#x3D;1
+
+即左边贡献等于右边贡献，所以
+
+">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -178,7 +187,7 @@ todo：自定义哈希函数
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/容斥原理.html"><strong aria-hidden="true">1.1.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/期望.html"><strong aria-hidden="true">1.1.2.</strong> 期望</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/pb_ds.html" class="active"><strong aria-hidden="true">1.2.1.</strong> pb_ds & rope</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html" class="active"><strong aria-hidden="true">1.1.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html"><strong aria-hidden="true">1.1.2.</strong> 期望</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html"><strong aria-hidden="true">1.2.1.</strong> pb_ds & rope</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -251,7 +260,7 @@ todo：自定义哈希函数
                         <script>
     let appContainer = document.currentScript && document.currentScript.parentElement;
     window.typstRenderModuleReady.then((plugin) => {
-        window.typstBookRenderPage(plugin, "/note/pb_ds", appContainer);
+        window.typstBookRenderPage(plugin, "/note/数学/容斥原理", appContainer);
     });
 </script>
                     </main>
