@@ -10,32 +10,26 @@
     <!-- Custom HTML head -->
     
     <meta name="description" content="#
-pb_ds&amp;amp;rope: C++ 中强大的扩展库
-pb_ds 中内封装了多种强大的数据结构，虽然效率可能并不算很高，但是若在有些时候知道怎么用或许可以解燃眉之急。
+画图
 #
-导入
-pb_ds&amp;amp;rope 存在万能头，只需要使用  #include &lt;bits/extc++.h&gt; 即可。
-pb_ds 中的内容处于命名空间 __gnu_pbds 内。
+题意
+给定 𝑛 个点，他们连接成了一个环，其中 𝑖 与 𝑖+1 连边，1 与 𝑛 连边，接下来给出 𝑚 条边 𝑢𝑖,𝑣𝑖，你需要回答在连接完这 𝑚 条边后是否存在一种情况使得在平面上，边两两不交（无交点）。
 #
-哈希表
-在 pb_ds 中，封装了 hash_table。这种哈希表相较于 unordered_map 速度更加快，效率更高，更难被卡。
-通常在 pb_ds 中常用的哈希表为 gp_hash_table,我们可以通过以下代码创建：
-// 以下 T1,T2 代表两种类型。
-#include&lt;bits/stdc++.h&gt;
-__gnu_pbds::gp_hash_table &lt;T1, T2&gt; H1;
-不难发现其构建方式类似于 map 和 unordered_map。
-1.
-相比于 unordered_map，其速度更快。
-
-
-2.
-空间复杂度略大于 unordered_map。
-
-
-todo：自定义哈希函数
+输入格式
+n m
+u_i v_i
+...
+u_m v_m
 #
-堆
-在 STL 中的 priority_queue 是我们通常">
+输出格式
+Yes 或 No，表示是否存在情况。
+#
+数据范围
+1≤𝑛,𝑚≤105，1≤𝑢𝑖,𝑣𝑖≤𝑛。
+
+不妨考虑我们如何才能保证边两两不交，发现环内环外在拓扑意义下等价。若只能在环内连边，显然只需要保证连边所对应的区间要么不相交，要么包含。在环外自然与环内类似。所以我们的问题便转化成了：我们是否能把题目所给定的边分成两组，使得在对应组别内两两不交（这里的相交指的是部分相交，下文同理）。
+这比较类似于种类并查集的运用。我们思考，相交的边肯定不能同时选入一个集合当中，所以不妨我们设节点 𝑖 表示 𝑖∈𝐴，而设节点 𝑖+𝑚 表示𝑖∈𝐵，其中 𝐴,𝐵 是我们要区分出的两个集合。
+则若两条边相交，我们可以把他们对应的节点相连到一个连通分量中，表示若该连通分量中的一个条件满足，则剩下的条件必须全部满足。即若边 𝑖,𝑗 有交集，我们可以连">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -175,7 +169,7 @@ todo：自定义哈希函数
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html"><strong aria-hidden="true">1.1.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html"><strong aria-hidden="true">1.1.2.</strong> 期望</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html" class="active"><strong aria-hidden="true">1.2.1.</strong> pb_ds & rope</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> cdq 分治</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/cdq分治/画图.html"><strong aria-hidden="true">2.2.1.</strong> 画图</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html"><strong aria-hidden="true">1.1.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html"><strong aria-hidden="true">1.1.2.</strong> 期望</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html"><strong aria-hidden="true">1.2.1.</strong> pb_ds & rope</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> cdq 分治</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/cdq分治/画图.html" class="active"><strong aria-hidden="true">2.2.1.</strong> 画图</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -248,7 +242,7 @@ todo：自定义哈希函数
                         <script>
     let appContainer = document.currentScript && document.currentScript.parentElement;
     window.typstRenderModuleReady.then((plugin) => {
-        window.typstBookRenderPage(plugin, "/note/奇技淫巧/pb_ds", appContainer);
+        window.typstBookRenderPage(plugin, "/note/solution/cdq分治/画图", appContainer);
     });
 </script>
                     </main>
