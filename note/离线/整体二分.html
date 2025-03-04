@@ -10,44 +10,17 @@
     <!-- Custom HTML head -->
     
     <meta name="description" content="#
-容斥原理
-|⋃𝑛𝑖&#x3D;1𝑆𝑖|&#x3D;∑𝑛𝑚&#x3D;1(−1)𝑚−1∑𝑎𝑖&lt;𝑎𝑖−1|⋂𝑚𝑖&#x3D;1𝑆𝑎𝑖|
+整体二分
+在遇到某些单个询问可以用二分解决的问题时，面对多组询问，我们思考如果能够对所有询问一并二分解决的话就可以解决整个问题。这时候，整体二分便会成为我们有力的工具。
+整体二分是一种离线思想，通过将多组询问同时处理以达到很好的时间复杂度，下面我们以下面几个例子来学习。
+#
+全序列第 𝑘 大
+有一个长为 𝑛 的序列 𝑎，现在有 𝑞 组询问，每组询问整个序列中第 𝑘𝑖 大的值是多少。
+1≤𝑛,𝑞,𝑘𝑖≤105，0≤𝑎𝑖≤109，𝑎𝑖,𝑛,𝑞,𝑘𝑖∈ℤ。
 
-证明
-考虑对于一个元素 𝑥 在 𝑚 个集合中出现过。
-•
-若 𝑚&#x3D;0，则显然该元素对等式的左右都不产生贡献。
-
-
-•
-若 𝑚≠0，则 𝑥 对等式左边的贡献显然为1，而对等式右边的贡献可用以下式子说明：
-  ∑𝑚𝑖&#x3D;1(−1)𝑖−1(𝑚𝑖)
-&#x3D;∑𝑚𝑖&#x3D;1−1×(−1)𝑖(𝑚𝑖)
-&#x3D;−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
-&#x3D;1−1−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
-&#x3D;1−(−1)0×(𝑚0)−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
-&#x3D;1−∑𝑚𝑖&#x3D;0(−1)𝑖(𝑚𝑖)
-
-由于在长为 𝑚 的 01 串中，1 的数量为奇数的串的数量与为偶数的串的数量相同。
-可采用数学归纳法。
-‣
-当 𝑚&#x3D;1 时，结论显然成立。
-
-
-‣
-当 𝑚&gt;1 时，若 𝑘&#x3D;𝑚−1 时结论成立，则当 𝑘&#x3D;𝑚 时，由于第 𝑚 位选择 0/1 的概率相同，所以显然也成立。
-
-
-
-
-故 ∑𝑚𝑖&#x3D;0(−1)𝑖(𝑚𝑖)&#x3D;0,即有
-原
-式
-&#x3D;1−0&#x3D;1
-
-即左边贡献等于右边贡献，所以
-
-">
+如果直接排序的话，这道题显然是简单的，那我们思考我们能否使用二分的方式解决单个询问呢?
+考虑二分答案，已知 0≤𝑎𝑖≤109，说明答案肯定也在 [0,109] 之内。不妨二分 mid，统计整个序列中小于等于 mid 的数的个数，若其大于等于 𝑘𝑖，说明最终答案一定小于等于 mid，则 𝑟⟵ mid，否则 𝑙⟵mid+1。若 𝑙&#x3D;𝑟，则说明答案为 𝑙。
+那么我们如果能同时处理所有询问就好了，不难发现，在第一次求 mid 时，我们可以同时处理出所有询问答案和 mid 的关系。那么我们可以把询问分为两类：ans&gt;mid 和 ans≤mid。若对两类继续如此递归，">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -187,7 +160,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html" class="active"><strong aria-hidden="true">1.1.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html"><strong aria-hidden="true">1.1.2.</strong> 期望</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html"><strong aria-hidden="true">1.2.1.</strong> pb_ds & rope</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> 离线</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/离线/整体二分.html"><strong aria-hidden="true">1.3.1.</strong> 整体二分</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> cdq 分治</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/cdq分治/画图.html"><strong aria-hidden="true">2.2.1.</strong> 画图</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html"><strong aria-hidden="true">1.1.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html"><strong aria-hidden="true">1.1.2.</strong> 期望</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html"><strong aria-hidden="true">1.2.1.</strong> pb_ds & rope</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> 离线</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/离线/整体二分.html" class="active"><strong aria-hidden="true">1.3.1.</strong> 整体二分</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> cdq 分治</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/cdq分治/画图.html"><strong aria-hidden="true">2.2.1.</strong> 画图</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -260,7 +233,7 @@
                         <script>
     let appContainer = document.currentScript && document.currentScript.parentElement;
     window.typstRenderModuleReady.then((plugin) => {
-        window.typstBookRenderPage(plugin, "/note/数学/容斥原理", appContainer);
+        window.typstBookRenderPage(plugin, "/note/离线/整体二分", appContainer);
     });
 </script>
                     </main>
