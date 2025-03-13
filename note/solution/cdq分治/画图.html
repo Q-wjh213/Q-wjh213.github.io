@@ -8,28 +8,17 @@
 
 
     <!-- Custom HTML head -->
-    
-    <meta name="description" content="#
-画图
-#
-题意
-给定 𝑛 个点，他们连接成了一个环，其中 𝑖 与𝑖+1 连边，1 与 𝑛 连边，接下来给出 𝑚 条边𝑢𝑖,𝑣𝑖，你需要回答在连接完这 𝑚 条边后是否存在一种情况使得在平面上，边两两不交（无交点）。
-#
-输入格式
-n m
+    <!-- Put your customized HTML <head> meta here. -->
+    <meta name="description" content="#画图#题意给定 𝑛 个点，他们连接成了一个环，其中 𝑖 与 𝑖+1 连边，1 与 𝑛 连边，接下来给出 𝑚 条边 𝑢𝑖,𝑣𝑖，你需要回答在连接完这 𝑚 条边后是否存在一种情况使得在平面上，边两两不交（无交点）。
+#输入格式n m
 u_i v_i
 ...
-u_m v_m
-#
-输出格式
-Yes 或 No，表示是否存在情况。
-#
-数据范围
-1≤𝑛,𝑚≤5×105，1≤𝑢𝑖,𝑣𝑖≤𝑛。
+u_m v_m#输出格式Yes 或 No，表示是否存在情况。
+#数据范围1≤𝑛,𝑚≤5×105，1≤𝑢𝑖,𝑣𝑖≤𝑛。
 
 不妨考虑我们如何才能保证边两两不交，发现环内环外在拓扑意义下等价。若只能在环内连边，显然只需要保证连边所对应的区间要么不相交，要么包含。在环外自然与环内类似。所以我们的问题便转化成了：我们是否能把题目所给定的边分成两组，使得在对应组别内两两不交（这里的相交指的是部分相交，下文同理）。
-这比较类似于种类并查集的运用。我们思考，相交的边肯定不能同时选入一个集合当中，所以不妨我们设节点 𝑖 表示 𝑖∈𝐴，而设节点 𝑖+𝑚 表示𝑖∈𝐵，其中 𝐴,𝐵 是我们要区分出的两个集合。
-则若两条边相交，我们可以把他们对应的节点相连到一个连通分量中，表示若该连通分量中的一个条件满足，则剩下的条件必须全部满足。即若边 𝑖,𝑗 有交集，我们可以连">
+这比较类似于种类并查集的运用。我们思考，相交的边肯定不能同时选入一个集合当中，所以不妨我们设节点 𝑖 表示 𝑖∈𝐴，而设节点 𝑖+𝑚 表示 𝑖∈𝐵，其中 𝐴,𝐵 是我们要区分出的两个集合。
+则若两条边相交，我们可以把他们对应的节点相连到一个连通分量中，表示若该连通分量中的一个条件满足，则剩下的条件必须全部满足。即若边 𝑖,𝑗 有交集，我们可以连以下的两条边 𝑖">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -88,6 +77,7 @@ Yes 或 No，表示是否存在情况。
         });
 
         var rendererWasmModule = fetch('/internal/typst_ts_renderer_bg.wasm');
+        window.typstBookJsLoaded = typstBookJsLoaded;
         window.typstRenderModuleReady = typstBookJsLoaded.then(() => {
             var typstRenderModule = window.typstRenderModule =
                 window.TypstRenderModule.createTypstRenderer();
@@ -199,7 +189,7 @@ Yes 或 No，表示是否存在情况。
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <!-- Put your customized page header here. -->                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
@@ -218,6 +208,11 @@ Yes 或 No，表示是否存在情况。
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                            aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
 
                     <h1 class="menu-title">note</h1>
@@ -227,6 +222,17 @@ Yes 或 No，表示是否存在情况。
                     </div>
                 </div>
 
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                            aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
@@ -259,6 +265,10 @@ Yes 或 No，表示是否存在情况。
             </nav>
 
         </div>
+
+        <script src="/internal/elasticlunr.min.js"></script>
+        <script src="/internal/mark.min.js"></script>
+        <script src="/internal/searcher.js"></script>
 
         <script src="/internal/svg_utils.js"></script>
         <script src="/theme/index.js"></script>

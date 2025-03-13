@@ -8,13 +8,9 @@
 
 
     <!-- Custom HTML head -->
-    
-    <meta name="description" content="#
-wqs 二分
-wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面我们以一道例题来研究。
-#
-例题
-有 𝑛 个正整数，第 𝑖 个正整数为 𝑎𝑖。现在要求你在其中选出一段长为 𝐾 的子序列，保证𝐾mod2&#x3D;0,𝐾≤𝑛。设子序列为 {𝑏𝑖}，则规定子序列权值 𝑤&#x3D;∑𝐾𝑖&#x3D;1(−1)𝑖+1𝑏𝑖。你需要找到能使 𝑤 最大的子序列。
+    <!-- Put your customized HTML <head> meta here. -->
+    <meta name="description" content="#wqs 二分wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面我们以一道例题来研究。
+#例题有 𝑛 个正整数，第 𝑖 个正整数为 𝑎𝑖。现在要求你在其中选出一段长为 𝐾 的子序列，保证 𝐾mod2&#x3D;0,𝐾≤𝑛。设子序列为 {𝑏𝑖}，则规定子序列权值 𝑤&#x3D; ∑𝐾𝑖&#x3D;1(−1)𝑖+1𝑏𝑖。你需要找到能使 𝑤 最大的子序列。
 2≤𝑘≤𝑛≤105，𝑘mod2&#x3D;0。
 
 考虑 dp，设 𝑓𝑖,𝑗 表示当前枚举到第 𝑖 位，已经选了 𝑗 个数。转移显然。
@@ -22,9 +18,10 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
 不妨假设 𝑔𝑖 表示当 𝐾&#x3D;2𝑖 时题目的答案，则我们可以发现一个规律：
 (𝑔𝑖+1−𝑔𝑖)↘
 
-感性理解，若 𝑔𝑖+2−𝑔𝑖+1&gt;𝑔𝑖+1−𝑔𝑖，不妨将𝑔𝑖+2 多选的数与 𝑔𝑖+1 中较劣的部分交换，答案显然更优。
+感性理解，若 𝑔𝑖+2−𝑔𝑖+1&gt;𝑔𝑖+1−𝑔𝑖，不妨将 𝑔𝑖+2 多选的数与 𝑔𝑖+1 中较劣的部分交换，答案显然更优。
 这有什么用呢？
 我们不妨把 𝑖 放在横坐标上，𝑔𝑖 放在纵坐标上，则可大致做出此图。
+
 
 
 
@@ -53,7 +50,9 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
 
 
 
+
 𝑦
+
 
 
 
@@ -63,7 +62,9 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
 
 
 
+
 2
+
 
 
 
@@ -73,27 +74,9 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
 
 
 
-6
-
-
-
-
-8
-
-
-
-
-2
-
-
-
-
-4
-
-
-
 
 6
+
 
 
 
@@ -104,11 +87,25 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
 
 
 
+2
 
 
 
 
 
+4
+
+
+
+
+
+6
+
+
+
+
+
+8
 
 
 ">
@@ -170,6 +167,7 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
         });
 
         var rendererWasmModule = fetch('/internal/typst_ts_renderer_bg.wasm');
+        window.typstBookJsLoaded = typstBookJsLoaded;
         window.typstRenderModuleReady = typstBookJsLoaded.then(() => {
             var typstRenderModule = window.typstRenderModule =
                 window.TypstRenderModule.createTypstRenderer();
@@ -281,7 +279,7 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <!-- Put your customized page header here. -->                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
@@ -300,6 +298,11 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                            aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
 
                     <h1 class="menu-title">note</h1>
@@ -309,6 +312,17 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
                     </div>
                 </div>
 
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                            aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
@@ -341,6 +355,10 @@ wqs 二分通常用于解决带限制，且 dp 值存在凸性的问题，下面
             </nav>
 
         </div>
+
+        <script src="/internal/elasticlunr.min.js"></script>
+        <script src="/internal/mark.min.js"></script>
+        <script src="/internal/searcher.js"></script>
 
         <script src="/internal/svg_utils.js"></script>
         <script src="/theme/index.js"></script>

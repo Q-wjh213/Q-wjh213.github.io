@@ -8,14 +8,9 @@
 
 
     <!-- Custom HTML head -->
-    
-    <meta name="description" content="#
-四边形不等式
-设 𝑤(𝑖,𝑗) 为一代价函数，其中 𝑖≤𝑗 且 𝑖,𝑗∈ℤ，则我们称若有下式成立，则该代价函数满足四边形不等式：
-𝑤(𝑎,𝑐)+𝑤(𝑏,𝑑)≤𝑤(𝑎,𝑑)+𝑤(𝑏,𝑐),其
-中
-𝑎≤𝑏≤𝑐≤𝑑且
-𝑎,𝑏,𝑐,𝑑∈ℤ
+    <!-- Put your customized HTML <head> meta here. -->
+    <meta name="description" content="#四边形不等式设 𝑤(𝑖,𝑗) 为一代价函数，其中 𝑖≤𝑗 且 𝑖,𝑗∈ℤ，则我们称若有下式成立，则该代价函数满足四边形不等式：
+𝑤(𝑎,𝑐)+𝑤(𝑏,𝑑)≤𝑤(𝑎,𝑑)+𝑤(𝑏,𝑐),其中𝑎≤𝑏≤𝑐≤𝑑且𝑎,𝑏,𝑐,𝑑∈ℤ
 
 该条件可以与以下条件互相转化（后文中的变量均为整数）：
 若 𝑎&lt;𝑏 时，有
@@ -23,26 +18,22 @@
 
 则该函数也满足四边形不等式。
 证明：
-1.
-𝑤(𝑎,𝑐)+𝑤(𝑏,𝑑)≤𝑤(𝑎,𝑑)+𝑤(𝑏,𝑐)⟹𝑤(𝑎,𝑏)+𝑤(𝑎+1,𝑏+1)≤𝑤(𝑎+1,𝑏)+𝑤(𝑎,𝑏+1)
+1.𝑤(𝑎,𝑐)+𝑤(𝑏,𝑑)≤𝑤(𝑎,𝑑)+𝑤(𝑏,𝑐)⟹𝑤(𝑎,𝑏)+𝑤(𝑎+1,𝑏+1)≤𝑤(𝑎+1,𝑏)+𝑤(𝑎,𝑏+1)
 
-显然，当 𝑎&#x3D;𝑥,𝑏&#x3D;𝑥+1,𝑐&#x3D;𝑦,𝑑&#x3D;𝑦+ 1 时，带入条件式，得
+显然，当 𝑎&#x3D;𝑥,𝑏&#x3D;𝑥+1,𝑐&#x3D;𝑦,𝑑&#x3D;𝑦+1 时，带入条件式，得
 𝑤(𝑥,𝑦)+𝑤(𝑥+1,𝑦+1)≤𝑤(𝑥,𝑦+1)+𝑤(𝑥+1,𝑦)
 
 结论成立。
 
 
-2.
-𝑤(𝑎,𝑏)+𝑤(𝑎+1,𝑏+1)≤𝑤(𝑎+1,𝑏)+𝑤(𝑎,𝑏+1)
+2.𝑤(𝑎,𝑏)+𝑤(𝑎+1,𝑏+1)≤𝑤(𝑎+1,𝑏)+𝑤(𝑎,𝑏+1)
 ⟹𝑤(𝑎,𝑐)+𝑤(𝑏,𝑑)≤𝑤(𝑎,𝑑)+𝑤(𝑏,𝑐)
 (1)
-
 不妨设
 𝑤(𝑎,𝑏)+𝑤(𝑎+1,𝑏+𝑘)≤𝑤(𝑎,𝑏+𝑘)+𝑤(𝑎+1,𝑏)
 (2)
-
 成立，则令 𝑏⟵𝑏+𝑘，带入 (1) 条件，有
-𝑤(𝑎,𝑏+𝑘)">
+𝑤(𝑎,𝑏+𝑘)+𝑤(𝑎+1,𝑏+𝑘">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -101,6 +92,7 @@
         });
 
         var rendererWasmModule = fetch('/internal/typst_ts_renderer_bg.wasm');
+        window.typstBookJsLoaded = typstBookJsLoaded;
         window.typstRenderModuleReady = typstBookJsLoaded.then(() => {
             var typstRenderModule = window.typstRenderModule =
                 window.TypstRenderModule.createTypstRenderer();
@@ -212,7 +204,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <!-- Put your customized page header here. -->                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
@@ -231,6 +223,11 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                            aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
 
                     <h1 class="menu-title">note</h1>
@@ -240,6 +237,17 @@
                     </div>
                 </div>
 
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                            aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
@@ -272,6 +280,10 @@
             </nav>
 
         </div>
+
+        <script src="/internal/elasticlunr.min.js"></script>
+        <script src="/internal/mark.min.js"></script>
+        <script src="/internal/searcher.js"></script>
 
         <script src="/internal/svg_utils.js"></script>
         <script src="/theme/index.js"></script>

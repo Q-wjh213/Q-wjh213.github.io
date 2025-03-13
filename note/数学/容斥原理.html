@@ -8,19 +8,14 @@
 
 
     <!-- Custom HTML head -->
-    
-    <meta name="description" content="#
-容斥原理
-|⋃𝑛𝑖&#x3D;1𝑆𝑖|&#x3D;∑𝑛𝑚&#x3D;1(−1)𝑚−1∑𝑎𝑖&lt;𝑎𝑖−1|⋂𝑚𝑖&#x3D;1𝑆𝑎𝑖|
+    <!-- Put your customized HTML <head> meta here. -->
+    <meta name="description" content="#容斥原理|⋃𝑛𝑖&#x3D;1𝑆𝑖|&#x3D;∑𝑛𝑚&#x3D;1(−1)𝑚−1∑𝑎𝑖&lt;𝑎𝑖−1|⋂𝑚𝑖&#x3D;1𝑆𝑎𝑖|
 
 证明
 考虑对于一个元素 𝑥 在 𝑚 个集合中出现过。
-•
-若 𝑚&#x3D;0，则显然该元素对等式的左右都不产生贡献。
+•若 𝑚&#x3D;0，则显然该元素对等式的左右都不产生贡献。
 
-
-•
-若 𝑚≠0，则 𝑥 对等式左边的贡献显然为1，而对等式右边的贡献可用以下式子说明：
+•若 𝑚≠0，则 𝑥 对等式左边的贡献显然为1，而对等式右边的贡献可用以下式子说明：
   ∑𝑚𝑖&#x3D;1(−1)𝑖−1(𝑚𝑖)
 &#x3D;∑𝑚𝑖&#x3D;1−1×(−1)𝑖(𝑚𝑖)
 &#x3D;−∑𝑚𝑖&#x3D;1(−1)𝑖(𝑚𝑖)
@@ -30,20 +25,14 @@
 
 由于在长为 𝑚 的 01 串中，1 的数量为奇数的串的数量与为偶数的串的数量相同。
 可采用数学归纳法。
-‣
-当 𝑚&#x3D;1 时，结论显然成立。
+‣当 𝑚&#x3D;1 时，结论显然成立。
 
-
-‣
-当 𝑚&gt;1 时，若 𝑘&#x3D;𝑚−1 时结论成立，则当 𝑘&#x3D;𝑚 时，由于第 𝑚 位选择 0/1 的概率相同，所以显然也成立。
-
+‣当 𝑚&gt;1 时，若 𝑘&#x3D;𝑚−1 时结论成立，则当 𝑘&#x3D;𝑚 时，由于第 𝑚 位选择 0/1 的概率相同，所以显然也成立。
 
 
 
 故 ∑𝑚𝑖&#x3D;0(−1)𝑖(𝑚𝑖)&#x3D;0,即有
-原
-式
-&#x3D;1−0&#x3D;1
+原式&#x3D;1−0&#x3D;1
 
 即左边贡献等于右边贡献，所以
 
@@ -106,6 +95,7 @@
         });
 
         var rendererWasmModule = fetch('/internal/typst_ts_renderer_bg.wasm');
+        window.typstBookJsLoaded = typstBookJsLoaded;
         window.typstRenderModuleReady = typstBookJsLoaded.then(() => {
             var typstRenderModule = window.typstRenderModule =
                 window.TypstRenderModule.createTypstRenderer();
@@ -217,7 +207,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <!-- Put your customized page header here. -->                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
@@ -236,6 +226,11 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                            aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
 
                     <h1 class="menu-title">note</h1>
@@ -245,6 +240,17 @@
                     </div>
                 </div>
 
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                            aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
@@ -277,6 +283,10 @@
             </nav>
 
         </div>
+
+        <script src="/internal/elasticlunr.min.js"></script>
+        <script src="/internal/mark.min.js"></script>
+        <script src="/internal/searcher.js"></script>
 
         <script src="/internal/svg_utils.js"></script>
         <script src="/theme/index.js"></script>

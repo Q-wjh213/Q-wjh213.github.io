@@ -8,35 +8,21 @@
 
 
     <!-- Custom HTML head -->
-    
-    <meta name="description" content="#
-动态 dp
-#
-前置：广义矩阵乘法
-我们现在定义两个广义矩阵相乘：
+    <!-- Put your customized HTML <head> meta here. -->
+    <meta name="description" content="#动态 dp#前置：广义矩阵乘法我们现在定义两个广义矩阵相乘：
 𝐴×𝐵&#x3D;𝐶⟺𝐶𝑖,𝑗&#x3D;⨁𝑛𝑘&#x3D;1(𝐴𝑖,𝑘⊗𝐵𝑘,𝑗)
 
 若希望其满足矩阵乘法的性质（如结合律以使用快速幂运算），需要 ⊕,⊗ 运算满足以下性质：
-•
-⊕ 运算需要满足交换律。
+•⊕ 运算需要满足交换律。
 
+•⊗ 运算需要满足交换律以及结合律。
 
-•
-⊗ 运算需要满足交换律以及结合律。
-
-
-•
-且 ⊗ 对 ⊕ 存在分配律，即 𝑎⊗(𝑏⊕𝑐)&#x3D;(𝑎⊗ 𝑏)⊕(𝑎⊗𝑐)。
-
+•且 ⊗ 对 ⊕ 存在分配律，即 𝑎⊗(𝑏⊕𝑐)&#x3D;(𝑎⊗𝑏)⊕(𝑎⊗𝑐)。
 可以证明若满足以上性质，则其满足矩阵乘法的相关性质。
 举几个例子：
-•
-当 ⊕ 为 +，⊗ 为 × 时，其就是正常的矩阵乘法。
+•当 ⊕ 为 +，⊗ 为 × 时，其就是正常的矩阵乘法。
 
-
-•
-当 ⊕ 为 max 操作，⊗ 为 + 时，发现这两个操作满足以上性质，故其为广义矩阵乘法。
-
+•当 ⊕ 为 max 操作，⊗ 为 + 时，发现这两个操作满足以上性质，故其为广义矩阵乘法。
 
 ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,6 +83,7 @@
         });
 
         var rendererWasmModule = fetch('/internal/typst_ts_renderer_bg.wasm');
+        window.typstBookJsLoaded = typstBookJsLoaded;
         window.typstRenderModuleReady = typstBookJsLoaded.then(() => {
             var typstRenderModule = window.typstRenderModule =
                 window.TypstRenderModule.createTypstRenderer();
@@ -208,7 +195,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <!-- Put your customized page header here. -->                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
@@ -227,6 +214,11 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                            aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
 
                     <h1 class="menu-title">note</h1>
@@ -236,6 +228,17 @@
                     </div>
                 </div>
 
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                            aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
@@ -268,6 +271,10 @@
             </nav>
 
         </div>
+
+        <script src="/internal/elasticlunr.min.js"></script>
+        <script src="/internal/mark.min.js"></script>
+        <script src="/internal/searcher.js"></script>
 
         <script src="/internal/svg_utils.js"></script>
         <script src="/theme/index.js"></script>

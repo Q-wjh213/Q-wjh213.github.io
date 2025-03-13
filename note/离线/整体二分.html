@@ -8,19 +8,15 @@
 
 
     <!-- Custom HTML head -->
-    
-    <meta name="description" content="#
-整体二分
-在遇到某些单个询问可以用二分解决的问题时，面对多组询问，我们思考如果能够对所有询问一并二分解决的话就可以解决整个问题。这时候，整体二分便会成为我们有力的工具。
+    <!-- Put your customized HTML <head> meta here. -->
+    <meta name="description" content="#整体二分在遇到某些单个询问可以用二分解决的问题时，面对多组询问，我们思考如果能够对所有询问一并二分解决的话就可以解决整个问题。这时候，整体二分便会成为我们有力的工具。
 整体二分是一种离线思想，通过将多组询问同时处理以达到很好的时间复杂度，下面我们以下面几个例子来学习。
-#
-全序列第 𝑘 小
-有一个长为 𝑛 的序列 𝑎，现在有 𝑞 组询问，每组询问整个序列中第 𝑘𝑖 小的值是多少。
+#全序列第 𝑘 小有一个长为 𝑛 的序列 𝑎，现在有 𝑞 组询问，每组询问整个序列中第 𝑘𝑖 小的值是多少。
 1≤𝑛,𝑞,𝑘𝑖≤105，0≤𝑎𝑖≤109，𝑎𝑖,𝑛,𝑞,𝑘𝑖∈ℤ。
 
 如果直接排序的话，这道题显然是简单的，那我们思考我们能否使用二分的方式解决单个询问呢?
-考虑二分答案，已知 0≤𝑎𝑖≤109，说明答案肯定也在 [0,109] 之内。不妨二分 mid，统计整个序列中小于等于 mid 的数的个数，若其大于等于 𝑘𝑖，说明最终答案一定小于等于 mid，则 𝑟⟵ mid，否则 𝑙⟵mid+1。若 𝑙&#x3D;𝑟，则说明答案为 𝑙。
-那么我们如果能同时处理所有询问就好了，不难发现，在第一次求 mid 时，我们可以同时处理出所有询问答案和 mid 的关系。那么我们可以把询问分为两类：ans&gt;mid 和 ans≤mid。若对两类继续如此递归，">
+考虑二分答案，已知 0≤𝑎𝑖≤109，说明答案肯定也在 [0,109] 之内。不妨二分 mid，统计整个序列中小于等于 mid 的数的个数，若其大于等于 𝑘𝑖，说明最终答案一定小于等于 mid，则 𝑟⟵mid，否则 𝑙⟵mid+1。若 𝑙&#x3D;𝑟，则说明答案为 𝑙。
+那么我们如果能同时处理所有询问就好了，不难发现，在第一次求 mid 时，我们可以同时处理出所有询问答案和 mid 的关系。那么我们可以把询问分为两类：ans&gt;mid 和 ans≤mid。若对两类继续如此递归，复杂度肯定">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -79,6 +75,7 @@
         });
 
         var rendererWasmModule = fetch('/internal/typst_ts_renderer_bg.wasm');
+        window.typstBookJsLoaded = typstBookJsLoaded;
         window.typstRenderModuleReady = typstBookJsLoaded.then(() => {
             var typstRenderModule = window.typstRenderModule =
                 window.TypstRenderModule.createTypstRenderer();
@@ -190,7 +187,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <!-- Put your customized page header here. -->                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
@@ -209,6 +206,11 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                            aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                            aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
 
                     <h1 class="menu-title">note</h1>
@@ -218,6 +220,17 @@
                     </div>
                 </div>
 
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..."
+                            aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
@@ -250,6 +263,10 @@
             </nav>
 
         </div>
+
+        <script src="/internal/elasticlunr.min.js"></script>
+        <script src="/internal/mark.min.js"></script>
+        <script src="/internal/searcher.js"></script>
 
         <script src="/internal/svg_utils.js"></script>
         <script src="/theme/index.js"></script>
