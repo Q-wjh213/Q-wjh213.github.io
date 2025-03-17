@@ -9,31 +9,28 @@
 
     <!-- Custom HTML head -->
     <!-- Put your customized HTML <head> meta here. -->
-    <meta name="description" content="#四边形不等式设 𝑤(𝑖,𝑗) 为一代价函数，其中 𝑖≤𝑗 且 𝑖,𝑗∈ℤ，则我们称若有下式成立，则该代价函数满足四边形不等式：
-𝑤(𝑎,𝑐)+𝑤(𝑏,𝑑)≤𝑤(𝑎,𝑑)+𝑤(𝑏,𝑐),其中𝑎≤𝑏≤𝑐≤𝑑且𝑎,𝑏,𝑐,𝑑∈ℤ
+    <meta name="description" content="#Prufer 序列对于一颗有编号的无根树，不妨设它有 𝑛 个点，通过 prufer 序列，我们可以将它用唯一的长为 𝑛−2 的序列来表示。而且对于任何一个长为 𝑛−2，值域为 [1,𝑛] 的整数序列，我们也可以把它转成对应的有编号无根树。即树与序列为双射关系，下面给出具体介绍。
+#对树建立 Prufer 序列1.找到该树的所有叶子结点
 
-该条件可以与以下条件互相转化（后文中的变量均为整数）：
-若 𝑎&lt;𝑏 时，有
-𝑤(𝑎,𝑏)+𝑤(𝑎+1,𝑏+1)≤𝑤(𝑎+1,𝑏)+𝑤(𝑎,𝑏+1)
+2.将编号最小的叶子节点取出，设其为 𝑥。
 
-则该函数也满足四边形不等式。
-证明：
-1.𝑤(𝑎,𝑐)+𝑤(𝑏,𝑑)≤𝑤(𝑎,𝑑)+𝑤(𝑏,𝑐)⟹𝑤(𝑎,𝑏)+𝑤(𝑎+1,𝑏+1)≤𝑤(𝑎+1,𝑏)+𝑤(𝑎,𝑏+1)
+3.找到 𝑥 相连的节点 𝑦。
 
-显然，当 𝑎&#x3D;𝑥,𝑏&#x3D;𝑥+1,𝑐&#x3D;𝑦,𝑑&#x3D;𝑦+1 时，带入条件式，得
-𝑤(𝑥,𝑦)+𝑤(𝑥+1,𝑦+1)≤𝑤(𝑥,𝑦+1)+𝑤(𝑥+1,𝑦)
+4.将 𝑦 加入 prufer 序列的末尾。
 
-结论成立。
+5.删去 𝑥，递归该步骤，直至 prufer 序列中有 𝑛−2 个元素。
+为什么不直到 𝑛−1 个元素才停止？
+因为第 𝑛−1 个元素按照上述构造过程可以证明其一定为 𝑛，将其加入序列无意义。
 
 
-2.𝑤(𝑎,𝑏)+𝑤(𝑎+1,𝑏+1)≤𝑤(𝑎+1,𝑏)+𝑤(𝑎,𝑏+1)
-⟹𝑤(𝑎,𝑐)+𝑤(𝑏,𝑑)≤𝑤(𝑎,𝑑)+𝑤(𝑏,𝑐)
-(1)
-不妨设
-𝑤(𝑎,𝑏)+𝑤(𝑎+1,𝑏+𝑘)≤𝑤(𝑎,𝑏+𝑘)+𝑤(𝑎+1,𝑏)
-(2)
-成立，则令 𝑏⟵𝑏+𝑘，带入 (1) 条件，有
-𝑤(𝑎,𝑏+𝑘)+𝑤(𝑎+1,𝑏+𝑘">
+Figure 1: 建立 prufer 序列过程（摘自 OI Wiki）
+
+#对 Prufer 序列建立树性质：
+1.序列中 𝑥 元素的出现次数 &#x3D; 其在原树上的度数减 1。
+
+2.在构造完 Prufer 序列后原树中会剩下两个结点，其中一个一定是编号最大的点 𝑛。
+
+根据这个性质，我们可以找出原树中的所有叶子，按照从小到大排序，则最小的叶子一定与 Pr">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -174,7 +171,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/Tips/组合计数.html"><strong aria-hidden="true">1.1.1.</strong> 组合计数</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html"><strong aria-hidden="true">1.2.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html"><strong aria-hidden="true">1.2.2.</strong> 期望</a></li><li class="chapter-item expanded "><a href="/note/数学/距离.html"><strong aria-hidden="true">1.2.3.</strong> 距离</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html"><strong aria-hidden="true">1.3.1.</strong> pb_ds & rope</a></li><li class="chapter-item expanded "><a href="/note/奇技淫巧/wqs二分.html"><strong aria-hidden="true">1.3.2.</strong> wqs 二分</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> 离线</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/离线/整体二分.html"><strong aria-hidden="true">1.4.1.</strong> 整体二分</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.5.</strong> 动态规划</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/动态规划/动态dp.html"><strong aria-hidden="true">1.5.1.</strong> 动态dp</a></li><li class="chapter-item expanded "><a href="/note/动态规划/四边形不等式优化dp.html" class="active"><strong aria-hidden="true">1.5.2.</strong> 四边形不等式优化dp</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.6.</strong> 图论</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/图论/传递闭包.html"><strong aria-hidden="true">1.6.1.</strong> 传递闭包</a></li><li class="chapter-item expanded "><a href="/note/图论/prufer序列.html"><strong aria-hidden="true">1.6.2.</strong> Prufer 序列</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> cdq 分治</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/cdq分治/画图.html"><strong aria-hidden="true">2.2.1.</strong> 画图</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/Tips/组合计数.html"><strong aria-hidden="true">1.1.1.</strong> 组合计数</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html"><strong aria-hidden="true">1.2.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html"><strong aria-hidden="true">1.2.2.</strong> 期望</a></li><li class="chapter-item expanded "><a href="/note/数学/距离.html"><strong aria-hidden="true">1.2.3.</strong> 距离</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html"><strong aria-hidden="true">1.3.1.</strong> pb_ds & rope</a></li><li class="chapter-item expanded "><a href="/note/奇技淫巧/wqs二分.html"><strong aria-hidden="true">1.3.2.</strong> wqs 二分</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> 离线</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/离线/整体二分.html"><strong aria-hidden="true">1.4.1.</strong> 整体二分</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.5.</strong> 动态规划</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/动态规划/动态dp.html"><strong aria-hidden="true">1.5.1.</strong> 动态dp</a></li><li class="chapter-item expanded "><a href="/note/动态规划/四边形不等式优化dp.html"><strong aria-hidden="true">1.5.2.</strong> 四边形不等式优化dp</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.6.</strong> 图论</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/图论/传递闭包.html"><strong aria-hidden="true">1.6.1.</strong> 传递闭包</a></li><li class="chapter-item expanded "><a href="/note/图论/prufer序列.html" class="active"><strong aria-hidden="true">1.6.2.</strong> Prufer 序列</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> cdq 分治</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/cdq分治/画图.html"><strong aria-hidden="true">2.2.1.</strong> 画图</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -263,7 +260,7 @@
                         <script>
     let appContainer = document.currentScript && document.currentScript.parentElement;
     window.typstRenderModuleReady.then((plugin) => {
-        window.typstBookRenderPage(plugin, "/note/动态规划/四边形不等式优化dp", appContainer);
+        window.typstBookRenderPage(plugin, "/note/图论/prufer序列", appContainer);
     });
 </script>
                     </main>
