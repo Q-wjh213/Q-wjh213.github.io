@@ -9,18 +9,17 @@
 
     <!-- Custom HTML head -->
     <!-- Put your customized HTML <head> meta here. -->
-    <meta name="description" content="#期望的线性性𝔼(𝑎𝑋+𝑏𝑌)&#x3D;𝑎𝔼(𝑋)+𝑏𝔼(𝑌)
-
-如何证明这个结论？
-考虑根据期望的定义，我们有
-𝔼(𝑎𝑋+𝑏𝑌)&#x3D;∑𝑥∑𝑦(𝑎𝑥+𝑏𝑦)×𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)
-&#x3D;𝑎∑𝑥∑𝑦𝑥×𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)+𝑏∑𝑦∑𝑥𝑦×𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)
-&#x3D;𝑎∑𝑥𝑥∑𝑦𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)+𝑏∑𝑦𝑦∑𝑥𝑝(𝑋&#x3D;𝑥,𝑌&#x3D;𝑦)
-&#x3D;𝑎∑𝑥𝑥×𝑝(𝑋&#x3D;𝑥)+𝑏∑𝑦𝑦×𝑝(𝑌&#x3D;𝑦)
-&#x3D;𝑎𝔼(𝑋)+𝑏𝔼(𝑌)
-
-
-">
+    <meta name="description" content="#shop#题目描述小 A 来到了一个商店，商店内有 𝑛 件物品，每件物品有一个售价 𝐴𝑖，小 A 是一个奸商，因此他能够把每件物品以 𝐵𝑖 的价格卖出。
+而由于小 A 背包空间有限，他只能买走恰好一件商品。而小 A 每次购买之后，小 B 将有可能将小 A 的物品摧毁，此时小 A 必须继续购买，并且商店不会返还购买这件物品的钱。小 B 至多可以摧毁 𝑚 件物品。
+小 A 的目标是最大化自己的收益。
+小 B 的目标是最小化小 A 获得的收益，即卖出的商品所得减去购买所有物品的总花费。
+注意到任何时刻小 B 都可以选择不将小 A 手中的物品摧毁，这样小 A 就必须立刻带着这件物品离开商店。
+#输入格式第一行一个正整数 𝑇，表示数据组数。
+对于每组数据：
+第一行两个正整数 𝑛,𝑚，分别表示物品数目和小 B 可摧毁的物品数量。
+接下来 𝑛 行，每行两个正整数 𝐴𝑖,𝐵𝑖，表示第 𝑖 件物品的售价和小 A 能卖出的价格。
+#输出格式对于每组数据，一行一个整数表示小 A 最终能获得的最大收益。由于小 A 可以直接走出商店（什么都不买），这个收益显然是非负的。
+#数据范围1≤𝑛≤105，0≤𝑚≤𝑛−1，∑𝑛≤3×105，1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ffffff" />
 
@@ -161,7 +160,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/Tips/组合计数.html"><strong aria-hidden="true">1.1.1.</strong> 组合计数</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html"><strong aria-hidden="true">1.2.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html" class="active"><strong aria-hidden="true">1.2.2.</strong> 期望</a></li><li class="chapter-item expanded "><a href="/note/数学/距离.html"><strong aria-hidden="true">1.2.3.</strong> 距离</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html"><strong aria-hidden="true">1.3.1.</strong> pb_ds & rope</a></li><li class="chapter-item expanded "><a href="/note/奇技淫巧/wqs二分.html"><strong aria-hidden="true">1.3.2.</strong> wqs 二分</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> 数据结构</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数据结构/odt.html"><strong aria-hidden="true">1.4.1.</strong> 珂朵莉树</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.5.</strong> 离线</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/离线/整体二分.html"><strong aria-hidden="true">1.5.1.</strong> 整体二分</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.6.</strong> 动态规划</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/动态规划/动态dp.html"><strong aria-hidden="true">1.6.1.</strong> 动态dp</a></li><li class="chapter-item expanded "><a href="/note/动态规划/四边形不等式优化dp.html"><strong aria-hidden="true">1.6.2.</strong> 四边形不等式优化dp</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> 图论</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/图论/传递闭包.html"><strong aria-hidden="true">1.7.1.</strong> 传递闭包</a></li><li class="chapter-item expanded "><a href="/note/图论/prufer序列.html"><strong aria-hidden="true">1.7.2.</strong> Prufer 序列</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> cdq 分治</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/cdq分治/画图.html"><strong aria-hidden="true">2.2.1.</strong> 画图</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> 贪心</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/贪心/shop.html"><strong aria-hidden="true">2.3.1.</strong> shop</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 笔记</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.1.</strong> Tips</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/Tips/组合计数.html"><strong aria-hidden="true">1.1.1.</strong> 组合计数</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.2.</strong> 数学</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数学/容斥原理.html"><strong aria-hidden="true">1.2.1.</strong> 容斥原理</a></li><li class="chapter-item expanded "><a href="/note/数学/期望.html"><strong aria-hidden="true">1.2.2.</strong> 期望</a></li><li class="chapter-item expanded "><a href="/note/数学/距离.html"><strong aria-hidden="true">1.2.3.</strong> 距离</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.3.</strong> 奇技淫巧</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/奇技淫巧/pb_ds.html"><strong aria-hidden="true">1.3.1.</strong> pb_ds & rope</a></li><li class="chapter-item expanded "><a href="/note/奇技淫巧/wqs二分.html"><strong aria-hidden="true">1.3.2.</strong> wqs 二分</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.4.</strong> 数据结构</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/数据结构/odt.html"><strong aria-hidden="true">1.4.1.</strong> 珂朵莉树</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.5.</strong> 离线</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/离线/整体二分.html"><strong aria-hidden="true">1.5.1.</strong> 整体二分</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.6.</strong> 动态规划</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/动态规划/动态dp.html"><strong aria-hidden="true">1.6.1.</strong> 动态dp</a></li><li class="chapter-item expanded "><a href="/note/动态规划/四边形不等式优化dp.html"><strong aria-hidden="true">1.6.2.</strong> 四边形不等式优化dp</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.7.</strong> 图论</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/图论/传递闭包.html"><strong aria-hidden="true">1.7.1.</strong> 传递闭包</a></li><li class="chapter-item expanded "><a href="/note/图论/prufer序列.html"><strong aria-hidden="true">1.7.2.</strong> Prufer 序列</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 题解</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 容斥原理</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/容斥原理/AT_agc038_e.html"><strong aria-hidden="true">2.1.1.</strong> AT_agc038_e</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> cdq 分治</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/cdq分治/画图.html"><strong aria-hidden="true">2.2.1.</strong> 画图</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> 贪心</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="/note/solution/贪心/shop.html" class="active"><strong aria-hidden="true">2.3.1.</strong> shop</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -250,7 +249,7 @@
                         <script>
     let appContainer = document.currentScript && document.currentScript.parentElement;
     window.typstRenderModuleReady.then((plugin) => {
-        window.typstBookRenderPage(plugin, "/note/数学/期望", appContainer);
+        window.typstBookRenderPage(plugin, "/note/solution/贪心/shop", appContainer);
     });
 </script>
                     </main>
